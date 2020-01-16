@@ -15,7 +15,7 @@ public class Variable {
         System.out.println("Процессор: " + numberOfCores + " ядра (ядер)");
         System.out.println("Оперативная память: "+ memorySyze + " Мб");
         System.out.println("Емкость батареи: " + batteryCapacity + " мАч");
-        System.out.println("Объем памяти видеокарты: " + videoMemorySyze+ " Мб");
+        System.out.println("Объем памяти видеокарты: " + videoMemorySyze + " Мб");
         System.out.println("Диагональ экрана: " + diagonalSyze + " дюймов(а)");
         System.out.println("Масса (кг): " + weight);
         System.out.println("Модель : " + modification);
