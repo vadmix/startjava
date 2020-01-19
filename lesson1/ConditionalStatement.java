@@ -42,7 +42,7 @@ public class ConditionalStatement {
 		if (!isMale) {
 			System.out.println("Сейчас на рынке труда наблюдается спрос на стюардесс. Похоже, эта профессия для Вас!");
 		}
-		if (height >1.80f) {
+		if (height > 1.80f) {
 			System.out.println("С таким большим ростом Вас точно возьмут!");
 		} else {
 			System.out.println("Рост, конечно, является плюсом в данной профессии, но это - не самое главное!");
