@@ -8,15 +8,19 @@ public class Person {
 	void go() {
 
 	}
+
 	void sit() {
 
 	}
+
 	int run() {
 		return 145;
 	}
+
 	void talk() {
 
 	}
+	
 	double learnJava() {
 		return 89;
 	}

@@ -6,11 +6,13 @@ public class WolfTest {
 		wolf.weight = 11f;
 		wolf.age = 2;
 		wolf.color = "White";
+		
 		System.out.println("Пол - ".concat(wolf.sex));
 		System.out.println("Кличка - ".concat(wolf.name));
 		System.out.println("Вес - ".concat(Double.toString(wolf.weight)));
 		System.out.println("Вазраст - ".concat(Integer.toString(wolf.age)));
 		System.out.println("Окрас - ".concat(wolf.color));
+
 		wolf.walk();
 		wolf.sit();
 		wolf.run();

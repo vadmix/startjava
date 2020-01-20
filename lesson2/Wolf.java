@@ -8,16 +8,20 @@ public class Wolf {
 	void walk() {
 		System.out.println("Волк идет");
 	}
+
 	void sit() {
 		System.out.println("Волк сидит");
 	}
+
 	void run() {
 		System.out.println("Волк бежит");
 	}
+
 	void hawl() {
-			System.out.println("Волк лает");
+		System.out.println("Волк лает");
 	}
-	void hunt(){
+
+	void hunt() {
 		System.out.println("На волка ведется охота");
 	}
 }
