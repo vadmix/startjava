@@ -1,7 +1,7 @@
 import java.util.Scanner; // подключаем сканер
 
 public class ConditionalStatement {
-	public static void main (String[] args){
+	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 
 		System.out.println("Укажите Ваш возраст:");
