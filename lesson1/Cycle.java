@@ -1,5 +1,5 @@
 public class Cycle {
-    public static void main (String[] args) {
+    public static void main (String[] args){
     	//Выводим числа от 0 до 20
     	for (int i = 0; i <= 20; i++) {
     		System.out.print(i);
@@ -31,7 +31,7 @@ public class Cycle {
     			System.out.println(k + " - четное число. Пропускаем.");
     		}
     		k++;
-    	} while (k <=20);
+    	} while (k <= 20);
     	System.out.println("Сумма всех нечетных чисел от 10 до 20 равна " + sum);
     }
 }
