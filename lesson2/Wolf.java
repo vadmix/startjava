@@ -1,27 +1,71 @@
 public class Wolf {
-	public String sex;
-	String name;
-	double weight;
-	int age;
-	String color;
 
-	void walk() {
+	public String sex;
+	private String name;
+	private double weight;
+	private int age;
+	private String color;
+
+	public String getSex(){
+		return sex;
+	}
+
+	public void setSex(String sex){
+		this.sex = sex;
+	}
+
+	public String getName(){
+		return name;
+	}
+
+	public void setName(String name){
+		this.name = name;
+	}
+
+	public double getWeight(){
+		return weight;
+	}
+
+	public void setWeight(double weight){
+		this.weight = weight;
+	}
+
+	public int getAge(){
+		return age;
+	}
+
+	public void setAge(int age){
+		if (age > 8) {
+			System.out.println(Integer.toString(age).concat(" - некорректный возраст. Возможно, Вы имели ввиду \"8\""));
+			this.age = 8;
+		} else this.age = age;
+	}
+
+	public String getColor(){
+		return color;
+	}
+
+	public void setColor(String color){
+		this.color = color;
+	}
+
+	public void walk() {
 		System.out.println("Волк идет");
 	}
 
-	void sit() {
+	public void sit() {
 		System.out.println("Волк сидит");
 	}
 
-	void run() {
+	public void run() {
 		System.out.println("Волк бежит");
 	}
 
-	void hawl() {
-		System.out.println("Волк лает");
+	public void hawl() {
+		System.out.println("Волк воет");
 	}
 
-	void hunt() {
+	public void hunt() {
 		System.out.println("На волка ведется охота");
 	}
 }
