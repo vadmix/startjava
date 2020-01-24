@@ -13,33 +13,7 @@ public class CalculatorTest {
 			System.out.print("Введите второе число: ");
 			calculator.setSecondNumber(scan.nextInt());
 			scan.nextLine();
-
-			switch (calculator.getOperator()) {
-				case '+':
-					System.out.println("Складываем");
-					System.out.println(calculator.getFirstNumber() + "+" + calculator.getSecondNumber() + "=" + calculator.addition());
-					break;
-				case '-':
-					System.out.println("Вычитаем");
-					System.out.println(calculator.getFirstNumber() + "-" + calculator.getSecondNumber() + "=" + calculator.subtraction());
-					break;
-				case '*':
-					System.out.println("Умножаем");
-					System.out.println(calculator.getFirstNumber() + "*" + calculator.getSecondNumber() + "=" + calculator.multiplication());
-					break;
-				case '/':
-					System.out.println("Делим");
-					System.out.println(calculator.getFirstNumber() + "/" + calculator.getSecondNumber() + "=" + calculator.division());
-					break;
-				case '%':
-					System.out.println("Находим остаток от деления");
-					System.out.println(calculator.getFirstNumber() + "%" + calculator.getSecondNumber() + "=" + calculator.modulo());
-					break;
-				case '^':
-					System.out.println("Возводим в степень");
-					System.out.println(calculator.getFirstNumber() + "^" + calculator.getSecondNumber() + "=" + calculator.power());
-					break;
-			}
+			calculator.calculate ();
 			String answer = "";
 			while (!((answer.equals("нет")) || (answer.equals("да")))) {
 				System.out.print("Хотите продолжить? [да/нет]: ");
