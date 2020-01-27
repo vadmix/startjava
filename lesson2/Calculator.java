@@ -1,3 +1,5 @@
+import java.util.Scanner; // подключаем сканер
+
 public class Calculator {
 
 	private int firstNumber;
@@ -9,12 +11,8 @@ public class Calculator {
 		isTurnedOn = true;
 	}
 
-	public boolean isTurnedOn() {
-		if (isTurnedOn) {
-			return true;
-		} else {
-			return false;
-		}
+	public boolean getIsTurnedOn() {
+		return isTurnedOn;
 	}
 
 	public void turnOff(){
@@ -45,72 +43,69 @@ public class Calculator {
 		this.operator = operator;
 	}
 
-	public int addition() {
-		return firstNumber + secondNumber;
-	}
-
-	public int subtraction() {
-		return firstNumber - secondNumber;
-	}
-
-	public int multiplication() {
-		return firstNumber * secondNumber;
-	}
-
-	public int division() {
-		return firstNumber / secondNumber;
-	}
-
-	public int modulo() {
-		return firstNumber % secondNumber;
-	}
-
-	public int power() {
-		int result = 1;
-		for (int i = 0; i < secondNumber; i++) {
-			result *= firstNumber;
-		}
-		return result;
-	}
-
 	public int calculate() {
+		Scanner scan = new Scanner(System.in);
 		int result;
-		switch (this.getOperator()) {
-			case '+':
-				System.out.println("Складываем");
-				result = this.addition();
-				System.out.println(firstNumber + "+" + secondNumber + "=" + result);
-				break;
-			case '-':
-				System.out.println("Вычитаем");
-				result = this.subtraction();
-				System.out.println(firstNumber + "-" + secondNumber + "=" + result);
-				break;
-			case '*':
-				System.out.println("Умножаем");
-				result = this.multiplication();
-				System.out.println(firstNumber + "*" + secondNumber + "=" + result);
-				break;
-			case '/':
-				System.out.println("Делим");
-				result = this.division();
-				System.out.println(firstNumber + "/" + secondNumber + "=" + result);
-				break;
-			case '%':
-				System.out.println("Находим остаток от деления");
-				result = this.modulo();
-				System.out.println(firstNumber + "%" + secondNumber + "=" + result);
-				break;
-			case '^':
-				System.out.println("Возводим в степень");
-				result = this.power();
-				System.out.println(firstNumber + "^" + secondNumber + "=" + result);
-				break;
-			default:
-				System.out.println("Выбрана неверная операция");
-				result = 0;
-				break;
-		}
+		String answer = "";
+		do {
+			System.out.print("Введите первое число: ");
+			firstNumber = scan.nextInt();
+			scan.nextLine();
+			System.out.print("Введите знак математической операции: ");
+			operator = scan.nextLine().charAt(0);
+			System.out.print("Введите второе число: ");
+			secondNumber = scan.nextInt();
+			scan.nextLine();
+			switch (operator) {
+				case '+':
+					System.out.println("Складываем");
+					result = firstNumber + secondNumber;
+					System.out.println(firstNumber + "+" + secondNumber + "=" + result);
+					break;
+				case '-':
+					System.out.println("Вычитаем");
+					result = firstNumber - secondNumber;
+					System.out.println(firstNumber + "-" + secondNumber + "=" + result);
+					break;
+				case '*':
+					System.out.println("Умножаем");
+					result = firstNumber * secondNumber;
+					System.out.println(firstNumber + "*" + secondNumber + "=" + result);
+					break;
+				case '/':
+					System.out.println("Делим");
+					result = firstNumber / secondNumber;
+					System.out.println(firstNumber + "/" + secondNumber + "=" + result);
+					break;
+				case '%':
+					System.out.println("Находим остаток от деления");
+					result = firstNumber % secondNumber;
+					System.out.println(firstNumber + "%" + secondNumber + "=" + result);
+					break;
+				case '^':
+					System.out.println("Возводим в степень");
+					result = 1;
+					for (int i = 0; i < secondNumber; i++) {
+						result *= firstNumber;
+					}
+					System.out.println(firstNumber + "^" + secondNumber + "=" + result);
+					break;
+				default:
+					System.out.println("Выбрана неверная операция");
+					result = 0;
+					break;
+			}
+			while (!((answer.equals("нет")) || (answer.equals("да")))) {
+				System.out.print("Хотите продолжить? [да/нет]: ");
+				answer = scan.nextLine();
+				if (answer.equals("нет")) {
+					turnOff();
+				} else if (answer.equals("да")) {
+					answer = "";
+					break;
+				}
+			}
+		} while (isTurnedOn);
 		return result;
 	}
 }
