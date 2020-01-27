@@ -1,23 +1,8 @@
-import java.util.Scanner; // подключаем сканер
-
 public class Calculator {
 
 	private int firstNumber;
 	private int secondNumber;
 	private char operator;
-	private boolean isTurnedOn;
-
-	public Calculator() {
-		isTurnedOn = true;
-	}
-
-	public boolean getIsTurnedOn() {
-		return isTurnedOn;
-	}
-
-	public void turnOff(){
-		isTurnedOn = false;
-	}
 
 	public int getFirstNumber() {
 		return firstNumber;
@@ -44,18 +29,7 @@ public class Calculator {
 	}
 
 	public int calculate() {
-		Scanner scan = new Scanner(System.in);
 		int result;
-		String answer = "";
-		do {
-			System.out.print("Введите первое число: ");
-			firstNumber = scan.nextInt();
-			scan.nextLine();
-			System.out.print("Введите знак математической операции: ");
-			operator = scan.nextLine().charAt(0);
-			System.out.print("Введите второе число: ");
-			secondNumber = scan.nextInt();
-			scan.nextLine();
 			switch (operator) {
 				case '+':
 					System.out.println("Складываем");
@@ -95,17 +69,6 @@ public class Calculator {
 					result = 0;
 					break;
 			}
-			while (!((answer.equals("нет")) || (answer.equals("да")))) {
-				System.out.print("Хотите продолжить? [да/нет]: ");
-				answer = scan.nextLine();
-				if (answer.equals("нет")) {
-					turnOff();
-				} else if (answer.equals("да")) {
-					answer = "";
-					break;
-				}
-			}
-		} while (isTurnedOn);
 		return result;
 	}
 }
