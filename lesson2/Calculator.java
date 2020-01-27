@@ -30,45 +30,45 @@ public class Calculator {
 
 	public int calculate() {
 		int result;
-			switch (operator) {
-				case '+':
-					System.out.println("Складываем");
-					result = firstNumber + secondNumber;
-					System.out.println(firstNumber + "+" + secondNumber + "=" + result);
-					break;
-				case '-':
-					System.out.println("Вычитаем");
-					result = firstNumber - secondNumber;
-					System.out.println(firstNumber + "-" + secondNumber + "=" + result);
-					break;
-				case '*':
-					System.out.println("Умножаем");
-					result = firstNumber * secondNumber;
-					System.out.println(firstNumber + "*" + secondNumber + "=" + result);
-					break;
-				case '/':
-					System.out.println("Делим");
-					result = firstNumber / secondNumber;
-					System.out.println(firstNumber + "/" + secondNumber + "=" + result);
-					break;
-				case '%':
-					System.out.println("Находим остаток от деления");
-					result = firstNumber % secondNumber;
-					System.out.println(firstNumber + "%" + secondNumber + "=" + result);
-					break;
-				case '^':
-					System.out.println("Возводим в степень");
-					result = 1;
-					for (int i = 0; i < secondNumber; i++) {
-						result *= firstNumber;
-					}
-					System.out.println(firstNumber + "^" + secondNumber + "=" + result);
-					break;
-				default:
-					System.out.println("Выбрана неверная операция");
-					result = 0;
-					break;
-			}
+		switch (operator) {
+			case '+':
+				System.out.println("Складываем");
+				result = firstNumber + secondNumber;
+				System.out.println(firstNumber + "+" + secondNumber + "=" + result);
+				break;
+			case '-':
+				System.out.println("Вычитаем");
+				result = firstNumber - secondNumber;
+				System.out.println(firstNumber + "-" + secondNumber + "=" + result);
+				break;
+			case '*':
+				System.out.println("Умножаем");
+				result = firstNumber * secondNumber;
+				System.out.println(firstNumber + "*" + secondNumber + "=" + result);
+				break;
+			case '/':
+				System.out.println("Делим");
+				result = firstNumber / secondNumber;
+				System.out.println(firstNumber + "/" + secondNumber + "=" + result);
+				break;
+			case '%':
+				System.out.println("Находим остаток от деления");
+				result = firstNumber % secondNumber;
+				System.out.println(firstNumber + "%" + secondNumber + "=" + result);
+				break;
+			case '^':
+				System.out.println("Возводим в степень");
+				result = 1;
+				for (int i = 0; i < secondNumber; i++) {
+					result *= firstNumber;
+				}
+				System.out.println(firstNumber + "^" + secondNumber + "=" + result);
+				break;
+			default:
+				System.out.println("Выбрана неверная операция");
+				result = 0;
+				break;
+		}
 		return result;
 	}
 }
