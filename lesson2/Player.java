@@ -10,11 +10,11 @@ public class Player {
 		return name;
 	}
 
-	public void setGuessNumber(int guessNumber){
+	public void setGuessNumber(int guessNumber) {
 		this.guessNumber = guessNumber;
 	}
 
-	public int getGuessNumber(){
+	public int getGuessNumber() {
 		return guessNumber;
 	}
 }
