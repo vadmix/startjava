@@ -10,23 +10,26 @@ public class GuessNumber {
 	public GuessNumber(Player player1, Player player2) {
 		this.player1 = player1;
 		this.player2 = player2;
-		randomNumber = (int) (Math.random() * 101);
-		isAlive = true;
 	}
 
 	public void play() {
+		isAlive = true;
+		randomNumber = (int) (Math.random() * 101);
 		do {
-			check (player1);
+			System.out.print(player1.getName() + ", введите предполагаемое число: ");
+			player1.setGuessNumber(scan.nextInt());
+			scan.nextLine();
+			compareNumber(player1);
 			if (isAlive) {
-				check (player2);
+				System.out.print(player2.getName() + ", введите предполагаемое число: ");
+				player2.setGuessNumber(scan.nextInt());
+				scan.nextLine();
+				compareNumber(player2);
 			}
 		} while (isAlive);
 	}
 
-	private void check(Player player) {
-		System.out.println(player.getName() + ", введите предполагаемое число:");
-		player.setGuessNumber(scan.nextInt());
-		scan.nextLine();
+	private void compareNumber(Player player) {
 		if (player.getGuessNumber() > randomNumber) {
 			System.out.println("Вы ввели число, которое больше того, которое загадал компьютер (" + randomNumber + ")");
 		} else if (player.getGuessNumber() < randomNumber) {
