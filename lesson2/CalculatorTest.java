@@ -4,7 +4,7 @@ public class CalculatorTest {
 	public static void main(String[] args) {
 		Calculator calculator = new Calculator();
 		Scanner scan = new Scanner(System.in);
-		String answer = "";
+		String answer;
 
 		do {
 			System.out.print("Введите первое число: ");
@@ -16,15 +16,10 @@ public class CalculatorTest {
 			calculator.setSecondNumber(scan.nextInt());
 			scan.nextLine();
 			calculator.calculate();
-			
-			while (!((answer.equals("нет")) || (answer.equals("да")))) {
+			do {
 				System.out.print("Хотите продолжить? [да/нет]: ");
 				answer = scan.nextLine();
-				if (answer.equals("да")) {
-					answer = "";
-					break;
-				}
-			}
+			} while (!answer.equals("нет") && !answer.equals("да"));
 		} while (!answer.equals("нет"));
 	}
 }
