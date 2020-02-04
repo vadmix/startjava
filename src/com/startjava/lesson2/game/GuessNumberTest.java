@@ -1,3 +1,5 @@
+package com.startjava.lesson2.game;
+
 import java.util.Scanner; // подключаем сканер
 
 public class GuessNumberTest {
