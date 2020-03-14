@@ -8,12 +8,12 @@ public class Calculator {
 	private int secondNumber;
 	private char operator;
 
-    public Calculator (String expression) {
-        String[] membersOfExpression = expression.split(" ");
-        firstNumber = Integer.parseInt(membersOfExpression[0]);
-        operator = membersOfExpression[1].charAt(0);
-        secondNumber = Integer.parseInt(membersOfExpression[2]);
-    }
+	public Calculator(String srcExpression) {
+		String[] membersOfExpression = srcExpression.split(" ");
+		firstNumber = Integer.parseInt(membersOfExpression[0]);
+		operator = membersOfExpression[1].charAt(0);
+		secondNumber = Integer.parseInt(membersOfExpression[2]);
+	}
 
 	public int getFirstNumber() {
 		return firstNumber;
@@ -39,7 +39,7 @@ public class Calculator {
 		this.operator = operator;
 	}
 
-	public int calculate() {
+	public void calculate() {
 		int result;
 		switch (operator) {
 			case '+':
@@ -67,16 +67,16 @@ public class Calculator {
 				result = floorMod(firstNumber, secondNumber);
 				System.out.println(firstNumber + "%" + secondNumber + "=" + result);
 				break;
-            case '>':
-                System.out.println("Находим максимум");
-                result = max(firstNumber, secondNumber);
-                System.out.println("max(" + firstNumber + "," + secondNumber + ")=" + result);
-                break;
-            case '<':
-                System.out.println("Находим минимум");
-                result = min(firstNumber, secondNumber);
-                System.out.println("min(" + firstNumber + "," + secondNumber + ")=" + result);
-                break;
+			case '>':
+				System.out.println("Находим максимум");
+				result = max(firstNumber, secondNumber);
+				System.out.println("max(" + firstNumber + "," + secondNumber + ")=" + result);
+				break;
+			case '<':
+				System.out.println("Находим минимум");
+				result = min(firstNumber, secondNumber);
+				System.out.println("min(" + firstNumber + "," + secondNumber + ")=" + result);
+				break;
 			case '^':
 				System.out.println("Возводим в степень");
 				result = 1;
@@ -87,9 +87,7 @@ public class Calculator {
 				break;
 			default:
 				System.out.println("Выбрана неверная операция");
-				result = 0;
 				break;
 		}
-		return result;
 	}
 }
