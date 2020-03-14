@@ -20,7 +20,7 @@ public class CalculatorTest {
 			System.out.println("\"<\" - поиск минимума");
 			System.out.println("\"^\" - возведение в степень");
 			calculator = new Calculator(scan.nextLine());
-			calculator.calculate();
+			System.out.println("Результат: " + calculator.calculate());
 			do {
 				System.out.print("Хотите продолжить? [да/нет]: ");
 				answer = scan.nextLine();

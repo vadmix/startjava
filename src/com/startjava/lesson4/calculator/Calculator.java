@@ -39,55 +39,57 @@ public class Calculator {
 		this.operator = operator;
 	}
 
-	public void calculate() {
-		int result;
+	public int calculate() {
+		//int result;
 		switch (operator) {
 			case '+':
 				System.out.println("Складываем");
-				result = addExact(firstNumber, secondNumber);
-				System.out.println(firstNumber + "+" + secondNumber + "=" + result);
-				break;
+				return addExact(firstNumber, secondNumber);
+				//System.out.println(firstNumber + "+" + secondNumber + "=" + result);
+				//break;
 			case '-':
 				System.out.println("Вычитаем");
-				result = subtractExact(firstNumber, secondNumber);
-				System.out.println(firstNumber + "-" + secondNumber + "=" + result);
-				break;
+				return subtractExact(firstNumber, secondNumber);
+				//System.out.println(firstNumber + "-" + secondNumber + "=" + result);
+				//break;
 			case '*':
 				System.out.println("Умножаем");
-				result = multiplyExact(firstNumber, secondNumber);
-				System.out.println(firstNumber + "*" + secondNumber + "=" + result);
-				break;
+				return multiplyExact(firstNumber, secondNumber);
+				//System.out.println(firstNumber + "*" + secondNumber + "=" + result);
+				//break;
 			case '/':
 				System.out.println("Делим");
-				result = floorDiv(firstNumber, secondNumber);
-				System.out.println(firstNumber + "/" + secondNumber + "=" + result);
-				break;
+				return floorDiv(firstNumber, secondNumber);
+				//System.out.println(firstNumber + "/" + secondNumber + "=" + result);
+				//break;
 			case '%':
 				System.out.println("Находим остаток от деления");
-				result = floorMod(firstNumber, secondNumber);
-				System.out.println(firstNumber + "%" + secondNumber + "=" + result);
-				break;
+				return floorMod(firstNumber, secondNumber);
+				//System.out.println(firstNumber + "%" + secondNumber + "=" + result);
+				//break;
 			case '>':
 				System.out.println("Находим максимум");
-				result = max(firstNumber, secondNumber);
-				System.out.println("max(" + firstNumber + "," + secondNumber + ")=" + result);
-				break;
+				return max(firstNumber, secondNumber);
+				//System.out.println("max(" + firstNumber + "," + secondNumber + ")=" + result);
+				//break;
 			case '<':
 				System.out.println("Находим минимум");
-				result = min(firstNumber, secondNumber);
-				System.out.println("min(" + firstNumber + "," + secondNumber + ")=" + result);
-				break;
+				return min(firstNumber, secondNumber);
+				//System.out.println("min(" + firstNumber + "," + secondNumber + ")=" + result);
+				//break;
 			case '^':
 				System.out.println("Возводим в степень");
-				result = 1;
+				int result = 1;
 				for (int i = 0; i < secondNumber; i++) {
 					result *= firstNumber;
 				}
-				System.out.println(firstNumber + "^" + secondNumber + "=" + result);
-				break;
+				return result;
+				//System.out.println(firstNumber + "^" + secondNumber + "=" + result);
+				//break;
 			default:
 				System.out.println("Выбрана неверная операция");
-				break;
+				return 0;
+				//break;
 		}
 	}
 }
