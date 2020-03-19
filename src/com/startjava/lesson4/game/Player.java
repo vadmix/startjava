@@ -1,8 +1,9 @@
 package com.startjava.lesson4.game;
 
+import java.util.Arrays;
+
 public class Player {
 	private String name;
-	private int guessNumber;
 	private int[] guessNumbers = new int[10];
 
 	public Player(String name) {
@@ -13,23 +14,20 @@ public class Player {
 		return name;
 	}
 
-	public void setGuessNumber(int guessNumber) {
-		this.guessNumber = guessNumber;
+	public int getGuessNumber(int index) {
+		return guessNumbers[index];
 	}
 
-	public int getGuessNumber() {
-		return guessNumber;
+	public void putGuessNumber(int guessNumber, int index) {
+		guessNumbers[index] = guessNumber;
 	}
 
-	public int getGuessNumber(int numberOfCell) {
-		return guessNumbers[numberOfCell];
-	}
-	public void putGuessNumber(int guessNumber, int numberOfCell) {
-		guessNumbers[numberOfCell] = guessNumber;
+	public void cleanGuessNumber() {
+		Arrays.fill(guessNumbers, 0);
 	}
 
-	public int[] getGuessNumbers() {
-		return guessNumbers;
+	public int[] getGuessNumbers(int length) {
+		return Arrays.copyOf(guessNumbers, length);
 	}
 
 
