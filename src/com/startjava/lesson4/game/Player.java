@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Player {
 	private String name;
-	private int[] guessNumbers = new int[10];
+	public int[] guessNumbers = new int[10];
 
 	public Player(String name) {
 		this.name = name;
@@ -22,13 +22,11 @@ public class Player {
 		guessNumbers[index] = guessNumber;
 	}
 
-	public void cleanGuessNumber() {
-		Arrays.fill(guessNumbers, 0);
+	public void cleanGuessNumber(int count) {
+		Arrays.fill(guessNumbers, 0, count, 0);
 	}
 
 	public int[] getGuessNumbers(int length) {
 		return Arrays.copyOf(guessNumbers, length);
 	}
-
-
 }
