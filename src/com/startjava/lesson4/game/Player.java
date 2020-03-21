@@ -4,13 +4,13 @@ import java.util.Arrays;
 
 public class Player {
 	private String name;
-	public int[] guessNumbers = new int[10];
+	private int[] guessNumbers = new int[10];
 
 	public Player(String name) {
 		this.name = name;
 	}
 
-	public String getName(){
+	public String getName() {
 		return name;
 	}
 
@@ -22,8 +22,8 @@ public class Player {
 		guessNumbers[index] = guessNumber;
 	}
 
-	public void cleanGuessNumber(int count) {
-		Arrays.fill(guessNumbers, 0, count, 0);
+	public void cleanGuessNumbers(int length) {
+		Arrays.fill(guessNumbers, 0, length, 0);
 	}
 
 	public int[] getGuessNumbers(int length) {

@@ -28,32 +28,38 @@ public class GuessNumber {
 			}
 		} while (isAlive && (countOfAttempts < 10));
 		System.out.println(Arrays.toString(player1.getGuessNumbers(countOfAttempts)));
-		player1.cleanGuessNumber(countOfAttempts);
+		player1.cleanGuessNumbers(countOfAttempts);
 		if (player2.getGuessNumber(countOfAttempts-1) == 0) {
 			System.out.println(Arrays.toString(player2.getGuessNumbers(countOfAttempts - 1)));
 			if (countOfAttempts > 1) {
-				player2.cleanGuessNumber(countOfAttempts - 1);
+				player2.cleanGuessNumbers(countOfAttempts - 1);
 			}
 		} else {
 			System.out.println(Arrays.toString(player2.getGuessNumbers(countOfAttempts)));
-			player2.cleanGuessNumber(countOfAttempts);
+			player2.cleanGuessNumbers(countOfAttempts);
 		}
-		System.out.println(Arrays.toString(player1.guessNumbers));
-		System.out.println(Arrays.toString(player2.guessNumbers));
 
+//		player1.cleanGuessNumbers(countOfAttempts);
+//		if (player2.getGuessNumber(countOfAttempts-1) == 0) {
+//			if (countOfAttempts > 1) {
+//				player2.cleanGuessNumbers(countOfAttempts - 1);
+//			}
+//		} else {
+//			player2.cleanGuessNumbers(countOfAttempts);
+//		}
 		isAlive = true;
 		countOfAttempts = 0;
 	}
 
 	private void makeMove(Player player) {
-		requestNumber(player);
+		inputNumber(player);
 		compareNumbers(player.getGuessNumber(countOfAttempts-1));
 		if ((countOfAttempts == 10) && isAlive) {
 			System.out.println("У " + player.getName()  + " закончились попытки");
 		}
 	}
 
-	private void requestNumber(Player player) {
+	private void inputNumber(Player player) {
 		System.out.print(player.getName() + ", введите предполагаемое число: ");
 		player.putGuessNumber(scan.nextInt(), countOfAttempts-1);
 		scan.nextLine();
