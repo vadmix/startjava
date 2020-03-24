@@ -7,7 +7,6 @@ public class GuessNumber {
 	private int randomNumber;
 	private Player player1;
 	private Player player2;
-	private boolean isAlive = true;
 	private int countOfAttempts;
 	private Scanner scan = new Scanner(System.in);
 
@@ -22,41 +21,36 @@ public class GuessNumber {
 		System.out.println("Компьютер загадал число " + randomNumber);
 		do {
 			countOfAttempts++;
-			makeMove(player1);
-			if (isAlive) {
-				makeMove(player2);
-			}
-		} while (isAlive && (countOfAttempts < 10));
-		System.out.println(Arrays.toString(player1.getGuessNumbers(countOfAttempts)));
-		player1.cleanGuessNumbers(countOfAttempts);
-		if (player2.getGuessNumber(countOfAttempts-1) == 0) {
-			System.out.println(Arrays.toString(player2.getGuessNumbers(countOfAttempts - 1)));
-			if (countOfAttempts > 1) {
-				player2.cleanGuessNumbers(countOfAttempts - 1);
-			}
-		} else {
-			System.out.println(Arrays.toString(player2.getGuessNumbers(countOfAttempts)));
-			player2.cleanGuessNumbers(countOfAttempts);
-		}
+			if (!makeMove(player1)) {
+				player1.setCountOfAttempts(countOfAttempts);
+				player2.setCountOfAttempts(countOfAttempts - 1);
+				break;
 
-//		player1.cleanGuessNumbers(countOfAttempts);
-//		if (player2.getGuessNumber(countOfAttempts-1) == 0) {
-//			if (countOfAttempts > 1) {
-//				player2.cleanGuessNumbers(countOfAttempts - 1);
-//			}
-//		} else {
-//			player2.cleanGuessNumbers(countOfAttempts);
-//		}
-		isAlive = true;
+			} else {
+				if (!makeMove(player2)){
+					player1.setCountOfAttempts(countOfAttempts);
+					player2.setCountOfAttempts(countOfAttempts);
+					break;
+				}
+			}
+		} while ((countOfAttempts < 10));
+
+		System.out.println(Arrays.toString(player1.getGuessNumbers()));
+		System.out.println(Arrays.toString(player2.getGuessNumbers()));
+
+		player1.cleanGuessNumbers();
+		player2.cleanGuessNumbers();
 		countOfAttempts = 0;
 	}
 
-	private void makeMove(Player player) {
+	private boolean makeMove(Player player) {
 		inputNumber(player);
-		compareNumbers(player.getGuessNumber(countOfAttempts-1));
-		if ((countOfAttempts == 10) && isAlive) {
-			System.out.println("У " + player.getName()  + " закончились попытки");
-		}
+		if (!compareNumbers(player.getGuessNumber(countOfAttempts-1))) {
+			if (countOfAttempts == 10) {
+				System.out.println("У " + player.getName() + " закончились попытки");
+			}
+			return true;
+		} else return false;
 	}
 
 	private void inputNumber(Player player) {
@@ -65,14 +59,16 @@ public class GuessNumber {
 		scan.nextLine();
 	}
 
-	private void compareNumbers(int guessNumber) {
+	private boolean compareNumbers(int guessNumber) {
 		if (guessNumber > randomNumber) {
 			System.out.println("Вы ввели число, которое больше того, которое загадал компьютер");
+			return false;
 		} else if (guessNumber < randomNumber) {
 			System.out.println("Вы ввели число, которое меньше того, которое загадал компьютер");
+			return false;
 		} else {
 			System.out.println("Вы угадали c " + countOfAttempts + " попытки! Это число - " + randomNumber);
-			isAlive = false;
+			return true;
 		}
 	}
 }
