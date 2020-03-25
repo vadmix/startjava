@@ -14,16 +14,21 @@ public class Player {
 	public String getName() {
 		return name;
 	}
+
 	public void setCountOfAttempts(int countOfAttempts) {
 		this.countOfAttempts = countOfAttempts;
 	}
 
-	public int getGuessNumber(int index) {
-		return guessNumbers[index];
+	public int getCountOfAttempts() {
+		return countOfAttempts;
 	}
 
-	public void putGuessNumber(int guessNumber, int index) {
-		guessNumbers[index] = guessNumber;
+	public int getGuessNumber() {
+		return guessNumbers[countOfAttempts - 1];
+	}
+
+	public void putGuessNumber(int guessNumber) {
+		guessNumbers[countOfAttempts - 1] = guessNumber;
 	}
 
 	public void cleanGuessNumbers() {
@@ -33,5 +38,4 @@ public class Player {
 	public int[] getGuessNumbers() {
 		return Arrays.copyOf(guessNumbers, countOfAttempts);
 	}
-
-	}
+}
