@@ -31,8 +31,9 @@ public class Player {
 		guessNumbers[countOfAttempts - 1] = guessNumber;
 	}
 
-	public void cleanGuessNumbers() {
+	public void clearGuessNumbers() {
 		Arrays.fill(guessNumbers, 0, countOfAttempts, 0);
+		countOfAttempts = 0;
 	}
 
 	public int[] getGuessNumbers() {

@@ -32,10 +32,8 @@ public class GuessNumber {
 		System.out.println(Arrays.toString(player1.getGuessNumbers()));
 		System.out.println(Arrays.toString(player2.getGuessNumbers()));
 
-		player1.cleanGuessNumbers();
-		player2.cleanGuessNumbers();
-		player1.setCountOfAttempts(0);
-		player2.setCountOfAttempts(0);
+		player1.clearGuessNumbers();
+		player2.clearGuessNumbers();
 	}
 
 	private boolean makeMove(Player player) {
