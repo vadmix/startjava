@@ -1,0 +1,17 @@
+﻿SELECT * FROM JAGGERS;
+
+SELECT modelName FROM JAGGERS WHERE status = 'Undestroyed';
+
+SELECT modelName FROM JAGGERS WHERE (MARK = 6) OR (MARK = 1);
+
+SELECT * FROM JAGGERS ORDER BY MARK DESC;
+
+SELECT * FROM JAGGERS WHERE launch = (SELECT MIN(launch) FROM JAGGERS);
+
+SELECT * FROM JAGGERS WHERE kaijuKill = (SELECT MAX(kaijuKill) FROM JAGGERS);
+
+SELECT AVG(WEIGHT) FROM JAGGERS;
+
+UPDATE Jaggers SET kaijuKill = kaijuKill + 1 WHERE status = 'Undestroyed';
+
+DELETE FROM Jaggers WHERE status = 'Destroyed';
